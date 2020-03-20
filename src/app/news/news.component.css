@@ -1,0 +1,10 @@
+body {
+    background-color: rgb(230, 230, 230);
+}
+.news-card{
+    margin: auto;
+    max-width: 800px; 
+}
+.news-viewport{
+    height: 1000px;
+}

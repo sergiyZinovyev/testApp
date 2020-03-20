@@ -1,0 +1,22 @@
+<body>
+    <h1 class="text-center pt-5">Top News</h1>
+    <cdk-virtual-scroll-viewport itemSize="50" class="news-viewport">
+        <div class='my-5 mx-2' *cdkVirtualFor='let news of newsList; let i = index'>
+            
+            <mat-card class="news-card">
+                <mat-card-header>
+                    <mat-card-title>{{news.title}}</mat-card-title>
+                    <mat-card-subtitle>{{news.description}}</mat-card-subtitle>
+                </mat-card-header>
+                <img mat-card-image [src]='news.urlToImage' alt="Photo of a Shiba Inu"> 
+                <mat-card-content>
+                    <p>{{news.content}}</p>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-button>LIKE</button>
+                    <button mat-button>SHARE</button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </cdk-virtual-scroll-viewport>        
+</body>  

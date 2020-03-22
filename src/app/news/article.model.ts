@@ -7,7 +7,7 @@ export class Article {
     readonly urlToImage: string;
     readonly publishedAt: string;
     readonly content: string;
-    readonly author: string;
+    readonly author: string; 
   
     constructor(resData) {
       this.source = resData.source.name;

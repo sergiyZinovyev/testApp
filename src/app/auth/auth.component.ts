@@ -1,17 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators, FormControl, FormGroupDirective, NgForm } from '@angular/forms';
-import {ErrorStateMatcher} from '@angular/material/core';
+import { FormBuilder, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from './auth.service';
 
-
-export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    const isSubmitted = form && form.submitted;
-    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-  }
-}
- 
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
@@ -19,7 +10,6 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class AuthComponent implements OnInit {
 
-  matcher = new MyErrorStateMatcher();
   warning: string = '';
 
   constructor(
@@ -29,9 +19,7 @@ export class AuthComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.loginForm.statusChanges.subscribe(status => {
-      this.warning = ''
-     });
+    this.loginForm.statusChanges.subscribe(() => this.warning = '');
   }
 
   loginForm = this.fb.group({
@@ -40,7 +28,6 @@ export class AuthComponent implements OnInit {
   })
 
   login(){
-    console.log('summit form');
     if(this.loginForm.valid) {
       this.auth.authentication(this.loginForm.value)
         .then(()=> this.router.navigate(['/profile']))

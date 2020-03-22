@@ -1,29 +1,32 @@
 import { Injectable } from '@angular/core';
 import {Login} from './login';
+import { HttpClient} from '@angular/common/http';
+import { Observable} from 'rxjs';
 
 @Injectable()
 export class AuthService {
 
-  login: Login = {
-    login: 'admin',
-    password: '12345'
-  }
+  url: string = 'https://visitors.galexpo.com.ua:7002';
 
-  constructor() { }
+  constructor(private http: HttpClient){}
+
+  getAuth(value: Login): Observable<any>{
+      return this.http.post(`${this.url}/fakeauth`, value)    
+  }
 
   authentication(data: Login): Promise<boolean>{
     localStorage.clear();
-    console.log('auth work!');
-    console.log(data);
     return new Promise((resolve, reject) => {
-      if(data.login === this.login.login && data.password === this.login.password) {
-        localStorage.setItem('login', 'true');
-        return resolve (true)
-      }
-      else {
-        localStorage.setItem('login', 'false');
-        return reject ('The username or password you entered is incorrect')
-      }
+      this.getAuth(data).subscribe((data: {auth:Boolean}) => {
+        if(data.auth) {
+          localStorage.setItem('login', 'true');
+          return resolve (true)
+        }
+        else {
+          localStorage.setItem('login', 'false');
+          return reject ('The username or password you entered is incorrect')
+        }
+      })
     })
   }  
     

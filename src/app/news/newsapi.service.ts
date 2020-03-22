@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { NewsModule } from './news.module';
 import { HttpClient} from '@angular/common/http';
-import { Observable} from 'rxjs';
+import { Observable} from 'rxjs'; 
  
 @Injectable()
 export class NewsapiService {

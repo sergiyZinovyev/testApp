@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { NewsModule } from './news.module';
-import { HttpClient} from '@angular/common/http';
+import { HttpClient} from '@angular/common/http'; 
 import { Observable} from 'rxjs'; 
+import {map} from 'rxjs/operators';
+import {Article} from './article.model';
  
 @Injectable()
 export class NewsapiService {
@@ -10,8 +11,9 @@ export class NewsapiService {
 
   constructor(private http: HttpClient){}
 
-  getNews(): Observable<any>{
-    return this.http.get(this.url);
+  getNews(): Observable<Article[]>{
+    return this.http.get<{articles:Array<any>, status: string, totalResults: number}>(this.url)
+      .pipe(map(data => data.articles.map(singleUser => new Article(singleUser))));
   }
 }
 

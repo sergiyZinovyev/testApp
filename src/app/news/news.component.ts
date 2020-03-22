@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {NewsapiService} from './newsapi.service';
-import { map } from 'rxjs/operators';
+import {Article} from './article.model';
 
 @Component({
   selector: 'app-news',
@@ -11,16 +11,16 @@ export class NewsComponent implements OnInit {
 
   constructor(private newsApi: NewsapiService) { }
 
-  newsList: Array<any> = []
+  newsList: Article[] = []
 
   ngOnInit() {
     this.getNews()
   }
-
+ 
   getNews(){
     return this.newsApi.getNews().subscribe(data =>{
       console.log(data);
-      this.newsList = [...data.articles];
+      this.newsList = [...data];
     })
   } 
  

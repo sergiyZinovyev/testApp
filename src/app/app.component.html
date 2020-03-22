@@ -8,13 +8,17 @@
       [matMenuTriggerFor]="menu">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="navbar-brand mx-1 ">testApp</div>
+    <div class="navbar-brand mx-1 ">
+      <b class="pr-3">NewsApp</b>
+      <i class="font-weight-light px-2">powered by</i>
+      <a class="text-decoration-none" href="https://newsapi.org"><b>News API</b></a>
+    </div>
   </div>
   <mat-menu #menu="matMenu" class="navbar justify-content-start navbar-dark bg-dark shadow-sm">
     <a class="nav-link active" routerLink="">home</a>
     <a class="nav-link" routerLink="news">news</a>
     <a class="nav-link" routerLink="profile">profile</a>
-    <!-- <a class="nav-link" mat-button color="warn" (click)="logout()">{{Logout | translate: lang}} ({{myUser()}})</a> -->
+    <!-- <a class="nav-link" mat-button color="warn" (click)="logout()">{{Logout | translate: lang}} ({{myUser()}})</a> --> 
   </mat-menu>
 
   <div class="collapse navbar-collapse justify-content-end">

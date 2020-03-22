@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { HomeModule } from './home/home.module';
 import { NewsModule } from './news/news.module';
 import { AuthModule } from './auth/auth.module';
-import { ProfileModule } from './profile/profile.module';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatMenuModule} from '@angular/material/menu';
@@ -23,7 +22,6 @@ import {MatButtonModule} from '@angular/material/button';
     HomeModule,
     NewsModule,
     AuthModule,
-    ProfileModule,
     BrowserAnimationsModule,
     MatMenuModule,
     MatButtonModule

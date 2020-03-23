@@ -11,9 +11,11 @@ const routes: Routes = [
   { 
     path: 'profile', 
     loadChildren: './profile/profile.module#ProfileModule',
-    canLoad: [LoginGuard]
+    canLoad: [LoginGuard],
+    canActivate: [LoginGuard]
   },
   { path: 'auth', component: AuthComponent},
+  { path: '**', component: HomeComponent}
 ];
 
 @NgModule({
@@ -21,4 +23,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { } 
- 
+  

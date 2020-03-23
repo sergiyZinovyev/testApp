@@ -15,26 +15,26 @@
     </div>
   </div>
   <mat-menu #menu="matMenu" class="navbar justify-content-start navbar-dark bg-dark shadow-sm">
-    <a class="nav-link active" routerLink="">home</a>
+    <a class="nav-link" routerLink="" routerLinkActive="active-link">home</a>
     <a class="nav-link" routerLink="news">news</a>
     <a class="nav-link" routerLink="profile">profile</a>
-    <!-- <a class="nav-link" mat-button color="warn" (click)="logout()">{{Logout | translate: lang}} ({{myUser()}})</a> --> 
   </mat-menu>
 
   <div class="collapse navbar-collapse justify-content-end">
-    <a class="nav-link active" routerLink="">home</a>
-    <a class="nav-link" routerLink="news">news</a>
-    <a class="nav-link" routerLink="profile">profile</a>
-    <!-- <a class="nav-link" mat-button color="warn" (click)="logout()">{{Logout | translate: lang}} ({{myUser()}})</a> -->
+    <a class="nav-link" routerLink=""routerLinkActive="active-link">home</a>
+    <a class="nav-link" routerLink="news"routerLinkActive="active-link">news</a>
+    <a class="nav-link" routerLink="profile"routerLinkActive="active-link">profile</a>
   </div>
 
-  <!-- <div class="justify-content-end">
-    <button data-toggle="collapse" type="button" class="btn btn-dark mx-0" [matMenuTriggerFor]="menu2">{{lang | translate: lang}}</button>
-    <mat-menu #menu2="matMenu" class="navbar justify-content-start navbar-dark bg-dark shadow-sm">
-        <a class="nav-link" mat-button color="warn" (click)="myLang('en')">{{en | translate: lang}}</a><br>
-        <a class="nav-link" mat-button color="warn" (click)="myLang('ukr')">{{ukr | translate: lang}}</a>
-    </mat-menu>
-  </div> -->
+  <button 
+    mat-icon-button
+    class="text-white"
+    matTooltip="logout" 
+    aria-label="Example icon-button with a heart icon" 
+    (click)='exit()'>
+    <mat-icon>exit_to_app</mat-icon>
+  </button>
+
 </header>
 <br><br>
 <router-outlet></router-outlet> 

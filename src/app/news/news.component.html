@@ -1,27 +1,25 @@
+<h1 class="text-center py-3">Top News</h1>
+<div class='mb-5 mx-2' *ngFor='let news of newsList; let i = index'>   
+    <mat-card class="news-card">
+        <mat-card-header>
+            <mat-card-title>{{news.title}}</mat-card-title>
+            <mat-card-subtitle>
+                <div *ngIf='news.author' class="font-italic">By {{news.author}}</div>
+                <div class="font-italic mb-n3">{{news.publishedAt}}</div>
+                <hr *ngIf='news.description'>
+                <div>{{news.description}}</div>
+            </mat-card-subtitle>
+        </mat-card-header>
+        <img *ngIf='news.urlToImage' mat-card-image [src]='news.urlToImage' alt="no photo"> 
+        <mat-card-content>
+            <p>
+                {{news.content}}
+                <a [href]="news.url">read more</a>
+            </p>
+        </mat-card-content>
+        <div>© {{news.source}}</div>
+    </mat-card>
+</div>
 
-    <h1 class="text-center py-3">Top News</h1>
-    <!-- <cdk-virtual-scroll-viewport itemSize="" class="news-viewport">
-        <div class='mb-5 mx-2' *cdkVirtualFor='let news of newsList; let i = index'> -->
-        <div class='mb-5 mx-2' *ngFor='let news of newsList; let i = index'>   
-            <mat-card class="news-card">
-                <mat-card-header>
-                    <mat-card-title>{{news.title}}</mat-card-title>
-                    <mat-card-subtitle>
-                        <div *ngIf='news.author' class="font-italic">By {{news.author}}</div>
-                        <div class="font-italic mb-n3">{{news.publishedAt}}</div>
-                        <hr *ngIf='news.description'>
-                        <div>{{news.description}}</div>
-                    </mat-card-subtitle>
-                </mat-card-header>
-                <img *ngIf='news.urlToImage' mat-card-image [src]='news.urlToImage' alt="no photo"> 
-                <mat-card-content>
-                    <p>
-                        {{news.content}}
-                        <a [href]="news.url">read more</a>
-                    </p>
-                </mat-card-content>
-                <div>© {{news.source}}</div>
-            </mat-card>
-        </div>
-    <!-- </cdk-virtual-scroll-viewport>         -->
 
+ 

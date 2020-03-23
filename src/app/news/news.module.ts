@@ -5,7 +5,6 @@ import {NewsapiService} from './newsapi.service';
 import { HttpClientModule } from '@angular/common/http';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
-import {ScrollingModule} from '@angular/cdk/scrolling';
 
 @NgModule({
   declarations: [NewsComponent],
@@ -14,7 +13,6 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
     HttpClientModule,
     MatCardModule,
     MatButtonModule,
-    ScrollingModule
   ],
   providers: [NewsapiService]
 })

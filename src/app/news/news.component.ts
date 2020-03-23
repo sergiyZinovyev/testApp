@@ -11,7 +11,7 @@ export class NewsComponent implements OnInit {
 
   constructor(private newsApi: NewsapiService) { }
 
-  newsList: Article[] = []
+  newsList: Article[] = [];
 
   ngOnInit() {
     this.getNews()
@@ -20,7 +20,7 @@ export class NewsComponent implements OnInit {
   getNews(){
     return this.newsApi.getNews().subscribe(data =>{
       console.log(data);
-      this.newsList = [...data];
+      this.newsList = data;
     })
   } 
  

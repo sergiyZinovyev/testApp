@@ -8,4 +8,13 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
 
+  constructor(
+    private router: Router,
+  ) { }
+
+  exit = () => {
+    localStorage.clear();
+    this.router.navigate(['/auth']); 
+  }
+
 }

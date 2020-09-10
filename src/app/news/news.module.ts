@@ -5,7 +5,7 @@ import {NewsapiService} from './newsapi.service';
 import { HttpClientModule } from '@angular/common/http';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
-
+ 
 @NgModule({
   declarations: [NewsComponent],
   imports: [

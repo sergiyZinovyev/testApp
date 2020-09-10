@@ -9,7 +9,7 @@ const routes: Routes = [
     component: ProfileComponent
   }
 ];
-
+ 
 @NgModule({
   declarations: [ProfileComponent],
   imports: [
